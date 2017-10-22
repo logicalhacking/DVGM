@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Grademgmt</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div id="header">
+      <% if current_user %>
+        <%= current_user.login %> | <%= current_user.role %> | <%= link_to 'Logout', sign_out_path, :method => :delete, :confirm => "Are you sure you want to logout?" %>
+      <% else %>
+        <%= link_to 'Login', sign_in_path %>
+      <% end %>
+    </div>
+    <div class="container">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>">
+          <%= value %>
+        </div>
+      <% end %>
+      <%= yield %>
+    </div>
+  </body>
+</html>

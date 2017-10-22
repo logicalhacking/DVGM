@@ -1,0 +1,30 @@
+<h1>Grades</h1>
+
+<table>
+  <tr>
+    <th>Lecturer</th>
+    <th>Lecture</th>
+    <th>Grade</th>
+    <th>Comment</th>
+  </tr>
+ 
+  <% @grades.each do |grade| %>
+    <tr>
+      <td><%= grade.lecture.lecturer.login %></td>
+      <td><%= grade.lecture.name %></td>
+      <td><%= grade.grade %></td>
+      <td>
+      <!-- FIX: remove html_safe -->
+      <% if grade.comment %>
+        <%= grade.comment.html_safe %>
+      <% end %>
+      </td>
+      <td><%= link_to 'Comment', edit_grade_path(grade) %></td>
+    </tr>
+  <% end %>
+</table>
+<%= form_tag(grades_url, method: "get") do %>
+  <%= label_tag(:lecturer, "Filter by lecturer:") %>
+  <%= text_field_tag(:lecturer) %>
+  <%= submit_tag("Filter") %>
+<% end %>

@@ -1,0 +1,22 @@
+<h1>New Grade</h1>
+
+<%= form_for @grade do |f| %>
+  <%= render 'shared/errors', object: @grade %>
+
+  <div>
+    <%= f.label :lecture %>
+    <%= f.select(:lecture_id, Lecture.all.collect {|p| [ p.name, p.id ] }) %>
+  </div>
+
+  <div>
+    <%= f.label :student %>
+    <%= f.select(:student_id, User.where(role: "student").collect {|p| [ p.login, p.id ] }) %>
+  </div>
+
+  <div>
+    <%= f.label :grade %>
+    <%= f.number_field :grade %>
+  </div>
+
+  <%= f.submit 'Create' %>
+<% end %>

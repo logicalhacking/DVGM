@@ -1,0 +1,17 @@
+<h1>New Lecture</h1>
+
+<%= form_for @lecture do |f| %>
+  <%= render 'shared/errors', object: @lecture %>
+
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :lecturer %>
+    <%= f.select(:lecturer_id, User.where(:role => "lecturer").collect {|p| [ p.login, p.id ] }) %>
+  </div>
+
+  <%= f.submit 'Create' %>
+<% end %>

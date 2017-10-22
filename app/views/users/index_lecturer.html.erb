@@ -1,0 +1,15 @@
+<h1>Listing students</h1>
+ 
+<%= link_to 'New Student', new_user_path %>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+ 
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.login %></td>
+    </tr>
+  <% end %>
+</table>

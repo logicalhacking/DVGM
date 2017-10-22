@@ -1,0 +1,17 @@
+<h1>Listing lectures</h1>
+
+<%= link_to 'New Lecture', new_lecture_path %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Lecturer</th>
+  </tr>
+ 
+  <% @lectures.each do |lecture| %>
+    <tr>
+      <td><%= lecture.name %></td>
+      <td><%= lecture.lecturer.login %></td>
+    </tr>
+  <% end %>
+</table>

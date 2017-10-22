@@ -1,0 +1,20 @@
+<h1>Edit Comment</h1>
+
+<%= form_for @grade do |f| %>
+  <%= render 'shared/errors', object: @grade %>
+  <div>
+    <%= f.label :lecture %>
+    <%= @grade.lecture.name %>
+  </div>
+  
+  <div>
+    <%= f.label :grade %>
+    <%= @grade.grade %>
+  </div>
+
+  <div>
+    <%= f.label :comment %>
+    <%= f.text_area :comment %>
+  </div>
+  <%= f.submit 'Update Comment' %>
+<% end %>
