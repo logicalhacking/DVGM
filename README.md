@@ -1,24 +1,15 @@
-# README
+# Installation
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Make sure that you have `ruby` and `ruby-bundler` installed. Then, run the following in the grademgmt directory:
 
-Things you may want to cover:
+```
+bundle install --path vendor/bundle
+```
 
-* Ruby version
+# Starting the server
 
-* System dependencies
+To start the development server, run the following:
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+bin/rails server
+```

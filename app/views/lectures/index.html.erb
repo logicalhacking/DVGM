@@ -1,8 +1,4 @@
-<h1>Listing lectures</h1>
-
-<%= link_to 'New Lecture', new_lecture_path %>
-
-<table>
+<table class="w3-table w3-striped w3-bordered">
   <tr>
     <th>Name</th>
     <th>Lecturer</th>
@@ -15,3 +11,7 @@
     </tr>
   <% end %>
 </table>
+
+<div class="w3-center w3-margin">
+  <%= link_to 'New Lecture', new_lecture_path, :class => "w3-button w3-light-blue" %>
+</div>

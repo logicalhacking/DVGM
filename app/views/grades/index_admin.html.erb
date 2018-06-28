@@ -1,14 +1,11 @@
-<h1>Grades</h1>
-
-<%= link_to 'New Grade', new_grade_path %>
-
-<table>
+<table class="w3-table w3-striped w3-bordered">
   <tr>
     <th>Lecturer</th>
     <th>Lecture</th>
     <th>Student</th>
     <th>Grade</th>
     <th>Comment</th>
+    <th>Action</th>
   </tr>
  
   <% @grades.each do |grade| %>
@@ -23,7 +20,11 @@
         <%= grade.comment.html_safe %>
       <% end %>
       </td>
-      <td><%= link_to 'Edit', edit_grade_path(grade) %></td>
+        <td><%= link_to 'Edit', edit_grade_path(grade), :class => "w3-button w3-light-blue" %></td>
     </tr>
   <% end %>
 </table>
+
+<div class="w3-center w3-margin">
+  <%= link_to 'New Grade', new_grade_path, :class => "w3-button w3-light-blue" %>
+</div>

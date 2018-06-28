@@ -1,31 +1,32 @@
-<div class="page-header"><h1>Register</h1></div>
-
-<%= form_for @user do |f| %>
+<%= form_for @user, :html => {:class => "w3-container w3-card-4 w3-margin"}  do |f| %>
   <%= render 'shared/errors', object: @user %>
 
-  <div class="form-group">
-    <%= f.label :login %>
-    <%= f.text_field :login %>
+  <div class="w3-row w3-section">
+    <div class="w3-col" style="width: 100px"><%= f.label :login %></div>
+    <div class="w3-rest"><%= f.text_field :login %></div>
   </div>
 
-  <div class="form-group">
-    <%= f.label :role %>
-    <% if logged_in_as_admin %>
-      <%= f.select :role, ["admin", "lecturer", "student"] %>
-    <% else %>
-      <%= f.select :role, [["admin", {"disabled" => "disabled"}], ["lecturer", {"disabled" => "disabled"}], "student"] %>
-    <% end %>
+  <div class="w3-row w3-section">
+    <div class="w3-col" style="width: 100px"><%= f.label :role %></div>
+    <div class="w3-rest">
+      <% if logged_in_as_admin %>
+        <%= f.select :role, ["admin", "lecturer", "student"] %>
+      <% else %>
+        <%= f.select :role, [["admin", {"disabled" => "disabled"}], ["lecturer", {"disabled" => "disabled"}], "student"] %>
+      <% end %>
+    </div>
   </div>
 
-  <div class="form-group">
-    <%= f.label :password %>
-    <%= f.password_field :password %>
+  <div class="w3-row w3-section">
+    <div class="w3-col" style="width: 100px"><%= f.label :password %></div>
+    <div class="w3-rest"><%= f.password_field :password %></div>
+  </div>
+  <div class="w3-row w3-section">
+    <div class="w3-col" style="width: 100px"><%= f.label :password_confirmation %></div>
+    <div class="w3-rest"><%= f.password_field :password_confirmation %></div>
   </div>
 
-  <div class="form-group">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
+  <div class="w3-center">
+    <%= f.submit 'Register', class: "w3-button w3-light-blue w3-margin" %>
   </div>
-
-  <%= f.submit 'Register' %>
 <% end %>

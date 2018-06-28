@@ -33,8 +33,8 @@ class UsersController < ApplicationController
     elsif logged_in_as_lecturer
       @user = User.new(users_params)
       # FIX: do not allow creation of lecturers or admins
-      # if not params[:role] == "student"
-      #   kick_out
+      # FIX: if not params[:role] == "student"
+      # FIX:   kick_out
       if @user.save
         flash[:success] = "Account registered!"
         redirect_to root_path

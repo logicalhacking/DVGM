@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Grademgmt</title>
+    <title>Sheffield Grade Management</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,19 +10,48 @@
   </head>
 
   <body>
-    <div id="header">
+    <div class="w3-bar w3-dark-grey">
+      <%= link_to 'Home', root_path, :class => "w3-bar-item w3-button w3-padding-large" + (current_page?(root_path) ? " w3-black" : "") %>
       <% if current_user %>
-        <%= current_user.login %> | <%= current_user.role %> | <%= link_to 'Logout', sign_out_path, :method => :delete, :confirm => "Are you sure you want to logout?" %>
+        <% if logged_in_as_admin %>
+          <%= link_to 'Grades', grades_url, :class => "w3-bar-item w3-button w3-padding-large" + (current_page?(grades_url) ? " w3-black" : "") %>
+          <%= link_to 'Lectures', lectures_url, :class => "w3-bar-item w3-button w3-padding-large" + (current_page?(lectures_url) ? " w3-black" : "") %>
+          <%= link_to 'Users', users_url, :class => "w3-bar-item w3-button w3-padding-large" + (current_page?(users_url) ? " w3-black" : "") %>
+        <% end %>
+
+        <% if logged_in_as_lecturer %>
+          <%= link_to 'Grades', grades_url, :class => "w3-bar-item w3-button w3-padding-large" + (current_page?(grades_url) ? " w3-black" : "") %>
+          <%= link_to 'Lectures', lectures_url, :class => "w3-bar-item w3-button w3-padding-large" + (current_page?(lectures_url) ? " w3-black" : "") %>
+          <%= link_to 'Students', users_url, :class => "w3-bar-item w3-button w3-padding-large" + (current_page?(users_url) ? " w3-black" : "") %>
+        <% end %>
+
+        <% if logged_in_as_student %>
+          <%= link_to 'Grades', grades_url, :class => "w3-bar-item w3-button w3-padding-large" + (current_page?(grades_url) ? " w3-black" : "") %>
+        <% end %>
+
+
+
+        <div class="w3-right">
+          <%= current_user.login %> | <%= current_user.role %> | <%= link_to 'Logout', sign_out_path, :class => "w3-button w3-amber w3-padding-large", :method => :delete, :data => {:confirm => "Are you sure you want to logout?"} %>
+        </div>
       <% else %>
-        <%= link_to 'Login', sign_in_path %>
+        <%= link_to 'Login', sign_in_path, :class => "w3-button w3-right w3-amber w3-padding-large" %>
       <% end %>
     </div>
-    <div class="container">
-      <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>">
-          <%= value %>
+    <% flash.each do |key, value| %>
+      <% if key == "error" %>
+        <div class="w3-panel w3-red w3-display-container">
+          <span class="w3-button w3-red w3-large w3-display-topright" onclick="this.parentElement.style.display='none'">x</span>
+          <h3><%= value %></h3>
+        </div>
+      <% elsif key == "success" %>
+        <div class="w3-panel w3-green w3-display-container">
+          <span class="w3-button w3-green w3-large w3-display-topright" onclick="this.parentElement.style.display='none'">x</span>
+          <h3><%= value %></h3>
         </div>
       <% end %>
+    <% end %>
+    <div class="w3-content">
       <%= yield %>
     </div>
   </body>

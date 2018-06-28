@@ -1,10 +1,12 @@
-<%= form_for @user_session, :url => sign_in_path do |f| %>
+<%= form_for @user_session, :html => {:class => "w3-container w3-card-4 w3-margin-top", :style => "max-width: 320px; margin: auto"}, :url => sign_in_path do |f| %>
   <%= render 'shared/errors', object: @user_session %>
-  <%= f.label :login %><br />
-  <%= f.text_field :login %><br />
-  <br />
-  <%= f.label :password %><br />
-  <%= f.password_field :password %><br />
-  <br />
-  <%= f.submit "Login" %>
+  <p>
+    <%= f.text_field :login, :class => "w3-input" %>
+    <%= f.label :login %>
+  </p>
+  <p>
+    <%= f.password_field :password, :class => "w3-input" %>
+    <%= f.label :password %>
+  </p>
+  <p><%= f.submit "Login", :class => "w3-button w3-amber" %></p>
 <% end %>

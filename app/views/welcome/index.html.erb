@@ -1,21 +1,4 @@
-<h1>Sheffield Grade Management</h1>
-<p>Welcome to Sheffield's new, super unsecure grade management!</p>
-
-<ul>
-<% if logged_in_as_admin %>
-  <li><%= link_to 'Grades', grades_url %></li>
-  <li><%= link_to 'Lectures', lectures_url %></li>
-  <li><%= link_to 'Users', users_url %></li>
-<% end %>
-
-<% if logged_in_as_lecturer %>
-  <li><%= link_to 'Grades', grades_url %></li>
-  <li><%= link_to 'Lectures', lectures_url %></li>
-  <li><%= link_to 'Students', users_url %></li>
-<% end %>
-
-<% if logged_in_as_student %>
-  <li><%= link_to 'Grades', grades_url %></li>
-<% end %>
-
-</ul>
+<div class="w3-center">
+  <h1 class="w3-jumbo">Sheffield Grade Management</h1>
+  <p>Welcome to Sheffield's new, super insecure grade management!</p>
+</div>

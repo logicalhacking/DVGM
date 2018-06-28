@@ -1,8 +1,4 @@
-<h1>Listing users</h1>
- 
-<%= link_to 'New User', new_user_path %>
-
-<table>
+<table class="w3-table w3-striped w3-bordered">
   <tr>
     <th>Name</th>
     <th>Role</th>
@@ -15,3 +11,7 @@
     </tr>
   <% end %>
 </table>
+
+<div class="w3-center w3-margin">
+  <%= link_to 'New User', new_user_path, :class => "w3-button w3-light-blue" %>
+</div>

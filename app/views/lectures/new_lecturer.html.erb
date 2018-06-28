@@ -1,12 +1,10 @@
-<h1>New Lecture</h1>
-
-<%= form_for @lecture do |f| %>
+<%= form_for @lecture, :html => {:class => "w3-container w3-card-4 w3-margin"} do |f| %>
   <%= render 'shared/errors', object: @lecture %>
-
-  <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+  <div class="w3-row w3-section">
+    <div class="w3-col" style="width: 100px"><%= f.label :name %></div>
+    <div class="w3-rest"><%= f.text_field :name %></div>
   </div>
-
-  <%= f.submit 'Create' %>
+  <div class="w3-center">
+    <%= f.submit class: "w3-button w3-light-blue w3-margin" %>
+  </div>
 <% end %>

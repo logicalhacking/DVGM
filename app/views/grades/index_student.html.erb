@@ -1,6 +1,4 @@
-<h1>Grades</h1>
-
-<table>
+<table class="w3-table w3-striped w3-bordered" style="margin: auto">
   <tr>
     <th>Lecturer</th>
     <th>Lecture</th>
@@ -19,12 +17,13 @@
         <%= grade.comment.html_safe %>
       <% end %>
       </td>
-      <td><%= link_to 'Comment', edit_grade_path(grade) %></td>
+      <td><%= link_to 'Comment', edit_grade_path(grade), :class => "w3-button w3-light-blue" %></td>
     </tr>
   <% end %>
 </table>
-<%= form_tag(grades_url, method: "get") do %>
-  <%= label_tag(:lecturer, "Filter by lecturer:") %>
-  <%= text_field_tag(:lecturer) %>
-  <%= submit_tag("Filter") %>
+<%= form_tag(grades_url, method: "get", class: "w3-margin") do %>
+  <div class="w3-right" style="width: 10%">
+  <%= submit_tag("Filter", class: "w3-button w3-light-blue") %>
+  </div>
+  <%= text_field_tag(:lecturer, "", class: "w3-input w3-border w3-round", placeholder: "Filter by lecturer...", style: "width: 90%") %>
 <% end %>

@@ -1,22 +1,18 @@
-<h1>New Grade</h1>
-
-<%= form_for @grade do |f| %>
+<%= form_for @grade, :html => {:class => "w3-container w3-card-4 w3-margin"} do |f| %>
   <%= render 'shared/errors', object: @grade %>
-
-  <div>
-    <%= f.label :lecture %>
-    <%= f.select(:lecture_id, Lecture.where(:lecturer => current_user).collect {|p| [ p.name, p.id ] }) %>
+  <div class="w3-row w3-section">
+    <div class="w3-col" style="width: 100px"><%= f.label :lecture %></div>
+    <div class="w3-rest"><%= f.select(:lecture_id, Lecture.where(:lecturer => current_user).collect {|p| [ p.name, p.id ] }) %></div>
   </div>
-
-  <div>
-    <%= f.label :student %>
-    <%= f.select(:student_id, User.where(role: "student").collect {|p| [ p.login, p.id ] }) %>
+  <div class="w3-row w3-section">
+    <div class="w3-col" style="width: 100px"><%= f.label :student %></div>
+    <div class="w3-rest"><%= f.select(:student_id, User.where(role: "student").collect {|p| [ p.login, p.id ] }) %></div>
   </div>
-
-  <div>
-    <%= f.label :grade %>
-    <%= f.number_field :grade %>
+  <div class="w3-row w3-section">
+    <div class="w3-col" style="width: 100px"><%= f.label :grade %></div>
+    <div class="w3-rest"><%= f.number_field :grade, class: "w3-input", style: "width: 80px" %></div>
   </div>
-
-  <%= f.submit 'Create' %>
+  <div class="w3-center">
+    <%= f.submit class: "w3-button w3-light-blue w3-margin" %>
+  </div>
 <% end %>
