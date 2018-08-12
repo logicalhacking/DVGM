@@ -21,3 +21,20 @@ To start the development server, run the following:
 ```bash
 bin/rails server
 ```
+
+## Team
+
+* [Achim D. Brucker](https://www.brucker.ch/)
+* [Michael Herzberg](http://www.dcs.shef.ac.uk/cgi-bin/makeperson?M.Herzberg)
+
+## License
+
+This project is licensed under the GPL 3.0 (or any later version).
+
+SPDX-License-Identifier: GPL-3.0-or-later
+
+## Master Repository
+
+The master git repository for this project is hosted by the [Software
+Assurance & Security Research Team](https://logicalhacking.com) at
+<https://git.logicalhacking.com/BrowserSecurity/grademgmt>.
