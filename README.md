@@ -1,10 +1,24 @@
-# Grade Management - An Intentionally Vulnerable Rails Application
+# Insecure Grade Management - An Intentionally Vulnerable Rails Application
 
-Grade Management is an **intentionally vulnerable** grade management application that can
-be used for teaching *security testing* and *security programming*.
+Insecure Grade Management is an **intentionally vulnerable** grade management application
+that can be used for teaching *security testing* and *security programming*.
 
-Grade Management implements a simplistic system for managaing university grade, i.e., students
-can check their marks and academics can enter marks.
+## Application Scenario
+
+Insecure Grade Management implements a simplistic system for managing university grades.
+Students can view their grades for their lectures. Moreover, students can add comments
+to the grades that can be viewed by lecturers. Thus, the applications knows three roles:
+*admins*, *lecturers*, and *students*.
+
+* *Admins* can create new students, lecturers, and other admins. Admins can create
+  new lectures, held by any lecturer. Admins can also create, view, and edit new
+  grades for all lectures and students and can create, view, and edit comments.
+* *Lecturers* can create new students. They can also create new lectures that are
+  being held by them. Lecturers can can view grades for all students, but only enter
+  new grades for their own students. Lecturers can see comments for all grades,
+  but can not change any.
+* *Students* can view their grades. For their convenience, they have the ability to filter
+  their grade list by a lecturer name.
 
 ## Setup
 
