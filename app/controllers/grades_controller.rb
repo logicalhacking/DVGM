@@ -19,7 +19,6 @@ class GradesController < ApplicationController
       render :index_lecturer
     elsif logged_in_as_student
       if params[:lecturer]
-        #FIX: @grades = Grade.joins(lecture: :lecturer).where("grades.student_id = #{current_user.id.to_s} AND users.login LIKE ?", "%#{params[:lecturer]}%")
         @grades = Grade.joins(lecture: :lecturer).where("grades.student_id = #{current_user.id.to_s} AND users.login LIKE '%#{params[:lecturer]}%'")
       else
         @grades = Grade.where(:student_id => current_user.id)

@@ -15,7 +15,6 @@
       <td><%= grade.student.login %></td>
       <td><%= grade.grade %></td>
       <td>
-      <!-- FIX: remove html_safe -->
       <% if grade.comment %>
         <%= grade.comment.html_safe %>
       <% end %>

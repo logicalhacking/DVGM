@@ -4,8 +4,7 @@ class ApplicationController < ActionController::Base
 
 private
   def kick_out
-    flash[:error] = "You do not have access to this site."
-    redirect_to root_url
+    raise ActionController::RoutingError.new('Not Found')
   end
 
   def logged_in_as_student

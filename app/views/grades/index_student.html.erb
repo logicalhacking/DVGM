@@ -1,3 +1,5 @@
+<p data-search-info></p>
+
 <table class="w3-table w3-striped w3-bordered" style="margin: auto">
   <tr>
     <th>Lecturer</th>
@@ -12,7 +14,6 @@
       <td><%= grade.lecture.name %></td>
       <td><%= grade.grade %></td>
       <td>
-      <!-- FIX: remove html_safe -->
       <% if grade.comment %>
         <%= grade.comment.html_safe %>
       <% end %>
