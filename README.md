@@ -15,6 +15,7 @@ VGM contains (at least) the following vulnerabilities:
 * DOM Based XSS / Client Side XSS
 * Missing server-side input validation
 * Insecure HTTP Headers
+* Vulnerable dependencies
 
 ## Suggested Static and Dynamic Tools
 
