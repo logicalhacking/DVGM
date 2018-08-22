@@ -94,4 +94,4 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 The master git repository for this project is hosted by the [Software
 Assurance & Security Research Team](https://logicalhacking.com) at
-<https://git.logicalhacking.com/BrowserSecurity/dvgm>.
+<https://git.logicalhacking.com/BrowserSecurity/DVGM>.
