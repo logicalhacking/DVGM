@@ -31,7 +31,7 @@ reasonable amount:
 ## Application Scenario
 
 Damn Vulnerable Grade Management implements a simplistic system for managing
-university grades.  Students can view their grades for their lectures and add
+university grades. Students can view their grades for their lectures and add
 comments to the grades, which can be viewed by lecturers. The application knows
 three roles: *admins*, *lecturers*, and *students*.
 
@@ -45,6 +45,9 @@ three roles: *admins*, *lecturers*, and *students*.
   all grades, but can not change any.
 * *Students* can view their grades. For their convenience, they have the ability
   to filter their grade list by a lecturer name.
+
+You are Peter, a student and you can log in with `peter` as username and
+`football` as password. Try and see how much information/control you can gain!
 
 ## Setup
 
@@ -69,7 +72,7 @@ This means that
 
 * on errors, rails will return a detailed debug page, and
 * changed source files will automatically be picked up, without needing to
-  restart the server.
+  restart the server (useful for seeing if your fixes work).
 
 Now, start the server:
 
