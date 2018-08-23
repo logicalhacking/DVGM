@@ -61,7 +61,7 @@ After cloning the repository, install the dependencies; `bundle` will install
 all dependencies automatically into a project-local directory:
 
 ```bash
-cd dvgm
+cd DVGM
 bundle install --path vendor/bundle
 ```
 
