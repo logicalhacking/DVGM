@@ -7,6 +7,9 @@
 # Ignore bundler config.
 /.bundle
 
+# ignore generated doc
+doc/rdocs
+
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-journal
