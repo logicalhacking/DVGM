@@ -8,7 +8,7 @@ started with automatic security testing tools.
 
 ## Known Vulnerabilities
 
-VGM contains (at least) the following vulnerabilities:
+DVGM contains (at least) the following vulnerabilities:
 
 * SQL Injection
 * Cross-Site Scripting (XSS)
