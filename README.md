@@ -68,7 +68,7 @@ bundle install --path vendor/bundle
 ### Starting the server
 
 To make exploration of the app a bit easier, we run DVGM in development mode.
-This means that 
+This means that
 
 * on errors, rails will return a detailed debug page, and
 * changed source files will automatically be picked up, without needing to
