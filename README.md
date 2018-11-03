@@ -55,6 +55,21 @@ You are Peter, a student and you can log in with `peter` as username and
 
 * Ruby 2.5 and [bundler](https://github.com/bundler/bundler)
 
+### Checkout
+
+The repository can be cloned as usual:
+
+``` sh
+git clone https://git.logicalhacking.com/BrowserSecurity/DVGM.git
+```
+
+Note, if you authorized to access the confidential solutions of the
+the exercises for DVGM, you can obtain them by executing
+
+``` sh
+git submodule update --init --recursive
+```
+
 ### Installation
 
 After cloning the repository, install the dependencies; `bundle` will install
