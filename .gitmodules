@@ -1,0 +1,3 @@
+[submodule "doc/solutions"]
+	path = doc/solutions
+	url = git@git.logicalhacking.com:BrowserSecurity/DVGM-solutions.git
