@@ -64,7 +64,7 @@ git clone https://git.logicalhacking.com/BrowserSecurity/DVGM.git
 ```
 
 Note, if you authorized to access the confidential solutions of the
-the exercises for DVGM, you can obtain them by executing
+exercises for DVGM, you can obtain them by executing
 
 ``` sh
 git submodule update --init --recursive
