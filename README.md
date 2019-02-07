@@ -31,8 +31,9 @@ reasonable amount:
 ## Application Scenario
 
 Damn Vulnerable Grade Management implements a simplistic system for managing
-university grades. Students can view their grades for their lectures and add
-comments to the grades, which can be viewed by lecturers. The application knows
+university grades. Students can upload assignments (pdf), view their grades for
+their assignments and lectures, download their grades as reports, and add
+comments to the grades which can be viewed by lecturers. The application knows
 three roles: *admins*, *lecturers*, and *students*.
 
 * *Admins* can create new students, lecturers, and other admins. Admins can
@@ -43,8 +44,12 @@ three roles: *admins*, *lecturers*, and *students*.
   are being held by them. Lecturers can can view grades for all students, but
   only enter new grades for their own students. Lecturers can see comments for
   all grades, but can not change any.
-* *Students* can view their grades. For their convenience, they have the ability
-  to filter their grade list by a lecturer name.
+* *Students* can upload assignments (pdf). They can also view and comment on
+  their grades for their assignments and overall lectures. For their
+  convenience, they have the ability to filter their grade list by a lecturer
+  name.
+* All roles are able to log into the system. They can also reset their password
+  by providing the answer to their chosen security question.
 
 You are Peter, a student and you can log in with `peter` as username and
 `football` as password. Try and see how much information/control you can gain!
