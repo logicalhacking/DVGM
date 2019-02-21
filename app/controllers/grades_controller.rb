@@ -41,7 +41,6 @@ class GradesController < ApplicationController
         render :new_admin
       end
     elsif logged_in_as_lecturer
-      # TODO: restrict more
       @grade = Grade.new(params.require(:grade).permit(:student_id, :lecture_id, :grade))
       if @grade.save
         flash[:success] = "Grade created!"
