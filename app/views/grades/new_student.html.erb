@@ -1,0 +1,26 @@
+<%= form_for @grade, :html => {:class => "w3-container w3-card-4 w3-margin"} do |f| %>
+  <%= render 'shared/errors', object: @grade %>
+  <div class="w3-row w3-section">
+    <div class="w3-col" style="width: 100px"><%= f.label :lecture %></div>
+    <div class="w3-rest"><%= f.select(:lecture_id, Lecture.all.collect {|p| [ p.name, p.id ] }) %></div>
+  </div>
+  <div class="w3-row w3-section">
+    <div class="w3-col" style="width: 100px"><%= f.label :student %></div>
+    <div class="w3-rest"><%= f.select(:student_id, User.where(role: "student").collect {|p| [ p.login, p.id ] }) %></div>
+  </div>
+  <div class="w3-row w3-section">
+    <div class="w3-col" style="width: 100px"><%= f.label :submission %></div>
+    <div class="w3-rest">
+      <% if @grade.submission.attached? %>
+        <%= link_to @grade.submission.filename.to_s, rails_blob_url(@grade.submission, disposition: "attachment") %>
+        <br>
+      <% end %>
+      <%= f.file_field :submission ,:onchange => "validate_file(this);", :data => { :allowed_extension => "pdf", :max_file_size => 500.kilobytes } %>
+      <br>
+      (Maximal 500 kB, only pdf files)
+    </div>
+  </div>
+  <div class="w3-center">
+    <%= f.submit "Submit", class: "w3-button w3-light-blue w3-margin" %>
+  </div>
+<% end %>

@@ -5,6 +5,8 @@ class GradesController < ApplicationController
       render :new_admin
     elsif logged_in_as_lecturer
       render :new_lecturer
+    elsif logged_in_as_student
+      render :new_student
     else
       kick_out
     end
@@ -47,6 +49,14 @@ class GradesController < ApplicationController
       else
         render :new_lecturer
       end
+    elsif logged_in_as_student
+      @grade = Grade.new(params.require(:grade).permit(:student_id, :lecture_id, :submission))
+      if @grade.save
+        flash[:success] = "Report submitted!"
+        redirect_to grades_path
+      else
+        render :new_student
+      end
     else
       kick_out
     end
@@ -78,7 +88,7 @@ class GradesController < ApplicationController
   def update
     if logged_in_as_admin
       @grade = Grade.find(params[:id])
-      if @grade.update(params.require(:grade).permit(:student_id, :lecture_id, :grade, :comment))
+      if @grade.update(params.require(:grade).permit(:student_id, :lecture_id, :grade, :comment, :submission)) and @grade.submission.attach(params[:submission])
         flash[:success] = "Update successful!"
         redirect_to grades_path
       else
@@ -97,7 +107,7 @@ class GradesController < ApplicationController
       if @grade.student != Student.find(current_user.id)
         kick_out
       else
-        if @grade.update(params.require(:grade).permit(:comment))
+        if @grade.update(params.require(:grade).permit(:comment, :submission))
           flash[:success] = "Update successful!"
           redirect_to grades_path
         else
