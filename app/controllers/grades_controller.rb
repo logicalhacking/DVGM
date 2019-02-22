@@ -49,7 +49,9 @@ class GradesController < ApplicationController
         render :new_lecturer
       end
     elsif logged_in_as_student
-      @grade = Grade.new(params.require(:grade).permit(:student_id, :lecture_id, :submission))
+      grade_params = params.require(:grade).permit(:lecture_id, :submission)
+      grade_params[:student_id] = current_user.id
+      @grade = Grade.new(grade_params)
       if @grade.save
         flash[:success] = "Report submitted!"
         redirect_to grades_path

@@ -5,10 +5,6 @@
     <div class="w3-rest"><%= f.select(:lecture_id, Lecture.all.collect {|p| [ p.name, p.id ] }) %></div>
   </div>
   <div class="w3-row w3-section">
-    <div class="w3-col" style="width: 100px"><%= f.label :student %></div>
-    <div class="w3-rest"><%= f.select(:student_id, User.where(role: "student").collect {|p| [ p.login, p.id ] }) %></div>
-  </div>
-  <div class="w3-row w3-section">
     <div class="w3-col" style="width: 100px"><%= f.label :submission %></div>
     <div class="w3-rest">
       <% if @grade.submission.attached? %>
