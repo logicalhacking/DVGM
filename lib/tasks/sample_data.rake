@@ -1,10 +1,10 @@
 namespace :db do
   desc "Populate database with default data"
   def generate_report(user)
-    report_dir = Rails.root.join("public", "reports")
+    FileUtils.mkdir_p(Rails.configuration.report_dir) unless File.directory?(Rails.configuration.report_dir)
     filename = user.id.to_s + ".pdf"
     report = GradeReport.new(user, Grade.where(:student => user))
-    report.render_file report_dir.join(filename)
+    report.render_file Rails.configuration.report_dir.join(filename)
   end
 
   task :populate => :environment do

@@ -26,9 +26,7 @@ doc/rdocs
 /vendor
 *.swp
 
-public/reports/*
-!public/reports/.keep
-public/uploads/*
-!public/uploads/.keep
+/public/reports
+/reports
 
 storage
