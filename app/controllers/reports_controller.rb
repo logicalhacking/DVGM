@@ -13,8 +13,4 @@ class ReportsController < ApplicationController
       kick_out
     end
   end
-
-  def show
-    send_file File.read(@@report_dir.join(params[:filename]))
-  end
 end

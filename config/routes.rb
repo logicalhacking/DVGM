@@ -15,9 +15,7 @@ Rails.application.routes.draw do
 
   resources :grades, only: [:new, :create, :index, :edit, :update]
 
-  get '/reports/:filename', to: 'reports#show'
   post '/reports', to: 'reports#create'
-
 
   root to: "welcome#index"
 end
