@@ -7,7 +7,7 @@ class ReportsController < ApplicationController
       FileUtils.mkdir_p(Rails.configuration.report_dir) unless File.directory?(Rails.configuration.report_dir)
       report.render_file Rails.configuration.report_dir.join(filename)
 
-      redirect_to action: 'show', filename: filename
+      redirect_to "/reports/" + filename
     else
       kick_out
     end
