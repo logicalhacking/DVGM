@@ -7,23 +7,27 @@ namespace :db do
     report.render_file Rails.configuration.report_dir.join(filename)
   end
 
+  def generate_password(password)
+    return Digest::MD5.hexdigest(password))
+  end
+
   task :populate => :environment do
     Rake::Task['db:reset'].invoke
-    u1 = User.create!(:login => "peter", :role => "student", :password => Digest::MD5.hexdigest("football"))
-    u2 = User.create!(:login => "alice", :role => "student", :password => Digest::MD5.hexdigest("wonderland3"))
-    u3 = User.create!(:login => "stacy", :role => "student", :password => Digest::MD5.hexdigest("ijv88234ji"))
-    u4 = User.create!(:login => "ben", :role => "student", :password => Digest::MD5.hexdigest("passw0rd"))
-    u5 = User.create!(:login => "kim", :role => "student", :password => Digest::MD5.hexdigest("12321"))
-    u6 = User.create!(:login => "jack", :role => "student", :password => Digest::MD5.hexdigest("s3cret"))
-    u7 = User.create!(:login => "kate", :role => "student", :password => Digest::MD5.hexdigest("geheim!"))
-    u8 = User.create!(:login => "sophie", :role => "student", :password => Digest::MD5.hexdigest("flowerpot"))
+    u1 = User.create!(:login => "peter", :role => "student", :password => generate_password("football"))
+    u2 = User.create!(:login => "alice", :role => "student", :password => generate_password("wonderland3"))
+    u3 = User.create!(:login => "stacy", :role => "student", :password => generate_password("ijv88234ji"))
+    u4 = User.create!(:login => "ben", :role => "student", :password => generate_password("passw0rd"))
+    u5 = User.create!(:login => "kim", :role => "student", :password => generate_password("12321"))
+    u6 = User.create!(:login => "jack", :role => "student", :password => generate_password("s3cret"))
+    u7 = User.create!(:login => "kate", :role => "student", :password => generate_password("geheim!"))
+    u8 = User.create!(:login => "sophie", :role => "student", :password => generate_password("flowerpot"))
 
-    l1 = User.create!(:login => "achim", :role => "lecturer", :password => Digest::MD5.hexdigest("dvgmisinsecure"),
+    l1 = User.create!(:login => "achim", :role => "lecturer", :password => generate_password("dvgmisinsecure"),
                      :secret_question => "From the university in which city did I get my Master's degree?",
                      :secret_answer => "Freiburg")
-    l2 = User.create!(:login => "greg", :role => "lecturer", :password => Digest::MD5.hexdigest("supersecure321"))
-    l3 = User.create!(:login => "david", :role => "lecturer", :password => Digest::MD5.hexdigest("david3"))
-    l4 = User.create!(:login => "john", :role => "lecturer", :password => Digest::MD5.hexdigest("johnjohnson"))
+    l2 = User.create!(:login => "greg", :role => "lecturer", :password => generate_password("supersecure321"))
+    l3 = User.create!(:login => "david", :role => "lecturer", :password => generate_password("david3"))
+    l4 = User.create!(:login => "john", :role => "lecturer", :password => generate_password("johnjohnson"))
 
     lec1 = Lecture.create(:name => "Security", :lecturer_id => l1.id)
     lec2 = Lecture.create(:name => "Algorithms", :lecturer_id => l2.id)
