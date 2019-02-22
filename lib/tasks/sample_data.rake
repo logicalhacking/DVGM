@@ -8,7 +8,7 @@ namespace :db do
   end
 
   def generate_password(password)
-    return Digest::MD5.hexdigest(password))
+    return Digest::MD5.hexdigest(password)
   end
 
   task :populate => :environment do
