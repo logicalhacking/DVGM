@@ -1,6 +1,6 @@
 class UserSessionsController < ApplicationController
   def create
-    @user = User.find_by :login => user_session_params[:login], :password => Digest::MD5.hexdigest(user_session_params[:password])
+    @user = User.where("users.login = '#{user_session_params[:login]}' AND users.password = '#{Digest::MD5.hexdigest(user_session_params[:password])}'").first
     if @user
       @user.session = SecureRandom.hex
       @user.save
