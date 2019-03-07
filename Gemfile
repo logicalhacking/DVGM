@@ -55,3 +55,6 @@ gem 'rdoc'
 gem 'bootsnap'
 gem 'prawn'
 gem 'prawn-table'
+
+gem "rails-html-sanitizer", "= 1.0.3"
+gem "loofah", "= 2.0.3"
