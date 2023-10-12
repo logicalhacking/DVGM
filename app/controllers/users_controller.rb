@@ -49,7 +49,7 @@ class UsersController < ApplicationController
       @user = User.find_by params[:user].permit(:login, :secret_answer)
       if @user
         if params[:user][:password] == params[:user][:password_confirmation]
-          @user.update_attributes(:password => Digest::MD5.hexdigest(params[:user][:password]))
+          @user.update(:password => Digest::MD5.hexdigest(params[:user][:password]))
           @user.save
           flash[:success] = "Password changed successfully!"
           redirect_to root_url

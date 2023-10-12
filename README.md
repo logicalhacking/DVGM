@@ -26,7 +26,7 @@ reasonable amount:
 
 * [arachni (1.5.1)](https://github.com/Arachni/arachni)
 * [zaproxy (OSWASP ZAP, 2.7.0)](https://github.com/zaproxy/zaproxy)
-* [brakeman (4.2.1)](https://github.com/presidentbeef/brakeman)
+* [brakeman](https://github.com/presidentbeef/brakeman)
 
 ## Application Scenario
 
@@ -58,7 +58,7 @@ You are Peter, a student and you can log in with `peter` as username and
 
 ### Dependencies
 
-* Ruby 2.5 and [bundler](https://github.com/bundler/bundler)
+* Ruby 3.1 (and Raild 7) and [bundler](https://github.com/bundler/bundler)
 
 ### Checkout
 
@@ -106,6 +106,7 @@ Now, open your browser, go to <http://localhost:3000>, and start exploring!
 
 * [Achim D. Brucker](https://www.brucker.ch/)
 * [Michael Herzberg](https://www.mherzberg.de/)
+* [Sakine Yalman](http://emps.exeter.ac.uk/computer-science/staff/sy359)
 
 ## License
 
