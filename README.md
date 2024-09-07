@@ -83,6 +83,9 @@ all dependencies automatically into a project-local directory:
 ```bash
 cd DVGM
 bundle install --path vendor/bundle
+bundle config set --local path 'vendor/bundle'
+RAILS_ENV=development bin/rake db:populate
+RAILS_ENV=production bin/rake db:populate
 ```
 
 ### Starting the server
